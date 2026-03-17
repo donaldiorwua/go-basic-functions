@@ -4,7 +4,10 @@ import (
 	"strconv"
 )
 
-func BaseConversion(word string, base int) (int64, error) {
-	result, _ := strconv.ParseInt(word, base, 64)
+func BaseTenConversion(words string, base int) (int64, error) {
+	result, err := strconv.ParseInt(words, base, 64)
+	if err != nil {
+		return 0, err
+	}
 	return result, nil
 }
