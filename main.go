@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	gobasicfunctions "go-basic-functions/function"
 	"strings"
 )
 
@@ -25,7 +25,8 @@ func main() {
 	fmt.Println(baseTenConversion("1010", 2))
 	fmt.Println(baseTenConversion("37", 8))
 	fmt.Println(baseTenConversion("99", 1))*/
-	fmt.Println(CapitaliseIndex("hello"))
+	//fmt.Println(CapitaliseIndex("hello"))
+	gobasicfunctions.GreetingText()
 
 }
 
