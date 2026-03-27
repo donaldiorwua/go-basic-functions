@@ -18,4 +18,6 @@ func main() {
 	//gobasicfunctions.GreetingText()
 	//fmt.Println(gobasicfunctions.Punc("m"))
 	fmt.Println(gobasicfunctions.FixSentenceArticles("There is a apple"))
+	fmt.Println(gobasicfunctions.FixSentenceArticles("a egg"))
+	fmt.Println(removeCommand([]string{"go", "to", "school", "(up)"}, 3))
 }
