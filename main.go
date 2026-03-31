@@ -18,4 +18,8 @@ func main() {
 	// fmt.Println(gobasicfunctions.ReverseString("hello"))
 	// gobasicfunctions.PerformOperation()
 	// fmt.Println(gobasicfunctions.CountWords("go go is so so fun"))
+	//Data := ""
+	//file := ""
+	//gobasicfunctions.WriteFile(Data)
+	//gobasicfunctions.ReadFile(file)
 }
