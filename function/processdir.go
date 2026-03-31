@@ -19,6 +19,7 @@ func ProcessDir() {
 			fmt.Println(err)
 			return
 		}
+		files = append(files, file)
 		fmt.Println("Content of", file, ":", string(content))
 	}
 }
