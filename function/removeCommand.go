@@ -1,5 +1,4 @@
-packag gobasicfunctions
-
+package gobasicfunctions
 
 func RemoveComm(words []string, index int) []string {
 	return append(words[:index], words[index+1:]...)

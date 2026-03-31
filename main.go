@@ -1,5 +1,10 @@
 package main
 
+import (
+	"fmt"
+	gobasicfunctions "go-basic-functions/function"
+)
+
 func main() {
 
 	// words := []string{"this", "is", "a", "simple", "test", "' awesome '"}
@@ -14,7 +19,7 @@ func main() {
 	// fmt.Println(gobasicfunctions.Punc("m"))
 	// fmt.Println(gobasicfunctions.FixSentenceArticles("There is a apple"))
 	// fmt.Println(gobasicfunctions.FixSentenceArticles("a egg"))
-	// fmt.Println(gobasicfunctions.RemoveComm([]string{"go", "to", "school", "(up)"}, 3))
+	fmt.Println(gobasicfunctions.RemoveComm([]string{"go", "to", "school", "(up)"}, 3))
 	// fmt.Println(gobasicfunctions.ReverseString("hello"))
 	// gobasicfunctions.PerformOperation()
 	// fmt.Println(gobasicfunctions.CountWords("go go is so so fun"))
