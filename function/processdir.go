@@ -2,7 +2,7 @@ package gobasicfunctions
 
 import (
 	"fmt"
-	"io/ioutil"
+	"os"
 	"path/filepath"
 )
 
@@ -12,14 +12,22 @@ func ProcessDir() {
 		fmt.Println(err)
 		return
 	}
+	result, err := os.OpenFile("summary.log", os.O_WRONLY|os.O_APPEND, 0644)
+	if err != nil {
+		fmt.Println(err)
+	}
+	defer result.Close()
 
 	for _, file := range files {
-		content, err := ioutil.ReadFile(file)
+		content, err := os.ReadFile(file)
 		if err != nil {
 			fmt.Println(err)
-			return
+			continue
 		}
-		files = append(files, file)
-		fmt.Println("Content of", file, ":", string(content))
+		_, err = result.WriteString(string(content) + "\n")
+		if err != nil {
+			fmt.Println(err)
+		}
 	}
+	fmt.Println("Summary written successfully")
 }
