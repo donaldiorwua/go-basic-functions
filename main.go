@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	gobasicfunctions "go-basic-functions/function"
 )
 
@@ -20,11 +21,17 @@ func main() {
 	//fmt.Println(gobasicfunctions.FixSentenceArticles("a egg"))
 	//fmt.Println(gobasicfunctions.RemoveComm([]string{"go", "to", "school", "(up)"}, 3))
 	// fmt.Println(gobasicfunctions.ReverseString("hello"))
-	gobasicfunctions.PerformOperation()
+	//gobasicfunctions.PerformOperation()
 	// fmt.Println(gobasicfunctions.CountWords("go go is so so fun"))
 	//Data := ""
 	//file := ""
 	//gobasicfunctions.WriteFile(Data)
 	//gobasicfunctions.ReadFile(file)
 	//gobasicfunctions.ProcessDir()
+	fmt.Println(gobasicfunctions.StringManipulator([]string{"hello", "111", "(bin)", "world"}))
+	fmt.Println(gobasicfunctions.StringManipulator([]string{"hello", "1e", "(hex)", "world"}))
+	fmt.Println(gobasicfunctions.StringManipulator([]string{"hello", "145", "(oct)", "world"}))
+	fmt.Println(gobasicfunctions.StringManipulator([]string{"hello", "welcome", "(up)", "world"}))
+	fmt.Println(gobasicfunctions.StringManipulator([]string{"hello", "welcome", "(cap)", "world"}))
+	fmt.Println(gobasicfunctions.StringManipulator([]string{"hello", "WELCOME", "(low)", "world"}))
 }
