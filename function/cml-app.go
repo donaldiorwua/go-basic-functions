@@ -6,15 +6,18 @@ import (
 )
 
 func PerformOperation() {
+	fmt.Println("=========================================")
+	fmt.Println("---WELCOME TO COMMANDLINE TEXT EDITOR---")
+	fmt.Println("==========================================")
 
 	for {
 		var operation, words string
 
-		fmt.Println("Enter a word or type 'exit' to exit the program!")
+		fmt.Println("Enter a word to transform or type 'exit' to exit the program!")
 		fmt.Scanln(&words)
 
 		if words == "exit" {
-			fmt.Println("Goodbye!")
+			fmt.Println("Goodbye! Thank you for using our Editor")
 			return
 		}
 
