@@ -10,6 +10,7 @@ func BaseConversionCommand(word []string) []string {
 	var result []string
 
 	for _, words := range word {
+		index := len(result) - 1
 		switch words {
 		case "(oct)":
 			base = 8
@@ -20,17 +21,16 @@ func BaseConversionCommand(word []string) []string {
 		}
 		switch words {
 		case "(hex)", "(oct)", "(bin)":
-			index := len(result) - 1
 			num, err := strconv.ParseInt(result[index], base, 64)
 			if err == nil {
-				result[len(result)-1] = strconv.FormatInt(num, 10)
+				result[index] = strconv.FormatInt(num, 10)
 			}
 		case "(up)":
-			result[len(result)-1] = strings.ToUpper(result[len(result)-1])
+			result[index] = strings.ToUpper(result[index])
 		case "(cap)":
-			result[len(result)-1] = strings.Title(result[len(result)-1])
+			result[index] = strings.Title(result[index])
 		case "(low)":
-			result[len(result)-1] = strings.ToLower(result[len(result)-1])
+			result[index] = strings.ToLower(result[index])
 		default:
 			result = append(result, words)
 
