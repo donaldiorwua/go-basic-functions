@@ -53,6 +53,9 @@ func lastChar(word string) string {
 }
 
 func capitalizeWord(word string) string {
+	if len(word) == 0 {
+		fmt.Println("Error: Enter a world")
+	}
 	return strings.ToUpper(word)
 }
 
@@ -62,8 +65,4 @@ func deleteIndex(word string, index int) string {
 		return word
 	}
 	return word[:index] + word[index+1:]
-}
-
-func exit() {
-	fmt.Println("Exiting...")
 }
