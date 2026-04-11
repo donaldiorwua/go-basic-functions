@@ -27,7 +27,7 @@ func StringManipulator(word []string) []string {
 		case "(up)":
 			result[index] = strings.ToUpper(result[index])
 		case "(cap)":
-			result[index] = strings.Title(result[index])
+			result[index] = strings.ToUpper(string(result[index][0])) + strings.ToLower(result[index][1:])
 		case "(low)":
 			result[index] = strings.ToLower(result[index])
 		default:
