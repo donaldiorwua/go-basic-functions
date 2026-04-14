@@ -8,20 +8,29 @@ import (
 func HandleCapN(text string) string {
 	var result []string
 	words := strings.Fields(text)
-	for i, word := range words {
-		trimed := strings.Trim(word, "()")
-		normalized := strings.ToLower(trimed)
-		if normalized == "cap" {
-			numStr := strings.TrimSuffix((words[i+1]), ")")
-			num, err := strconv.Atoi(numStr)
-			words[i+1] = ""
+	for _, word := range words {
+		if word == "(up,2)" {
+			trimed := strings.Trim(word, "()")
+			normalized := strings.ToLower(trimed)
 
-			if err != nil {
-				continue
+			splitted := strings.Split(normalized, ",")
+			removespace := strings.TrimSpace(splitted[0])
+
+			count := 1
+			if len(splitted) > 1 {
+				num, _ := strconv.Atoi(strings.TrimSpace(splitted[1]))
+				if num > count {
+					count = num
+				}
 			}
-
-			for count := 1; count <= num && i-count >= 0; count++ {
-				result[i-count] = strings.ToUpper(string(result[i-count][0])) + strings.ToLower(result[i-count][1:])
+			start := len(result) - count
+			if count > start {
+				start = 0
+			}
+			for k := start; k < len(result); k++ {
+				if removespace == "up" {
+					result[k] = strings.ToUpper(result[k])
+				}
 			}
 			continue
 		}
