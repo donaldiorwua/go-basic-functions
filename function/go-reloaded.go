@@ -61,7 +61,7 @@ func maincont() {
 func processor(text string) string {
 	text = textTransformer(text)
 	text = punctuation(text)
-	//text = article(text)
+	text = article(text)
 	text = upNwords(text)
 
 	return text
@@ -113,13 +113,16 @@ func punctuation(text string) string {
 
 func article(text string) string {
 	words := strings.Fields(text)
-	vow := "aoiuehAOIUE"
+	vow := "oiuehOIUE"
 
-	for i := range words {
-		if strings.HasPrefix(words[i], vow) {
-			words[i-1] = "an"
-		} else {
-			words[i-1] = "An"
+	for i := 0; i < len(words)-1; i++ {
+		if words[i] == "a" || words[i] == "A" {
+
+			if strings.ContainsRune(vow, rune(words[i+1][0])) {
+				words[i] = "an"
+			} else {
+				words[i] = "An"
+			}
 		}
 
 	}
@@ -154,6 +157,22 @@ func upNwords(text string) string {
 			for i := start; i < len(result); i++ {
 				if trigerword == "up" {
 					result[i] = strings.ToUpper(result[i])
+				} else if trigerword == "low" {
+					result[i] = strings.ToLower(result[i])
+				} else if trigerword == "cap" {
+					result[i] = strings.ToUpper(string(result[i][0])) + strings.ToLower(result[i][1:])
+				} else if words[i] == "(hex)" {
+					num, err := strconv.ParseInt(result[i], 16, 64)
+					if err != nil {
+						fmt.Println(err)
+					}
+					result[i] = strconv.FormatInt(num, 10)
+				} else if words[i] == "(bin)" {
+					num, err := strconv.ParseInt(result[i], 2, 64)
+					if err != nil {
+						fmt.Println(err)
+					}
+					result[i] = strconv.FormatInt(num, 10)
 				}
 			}
 		} else {
