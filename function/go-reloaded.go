@@ -157,7 +157,7 @@ func upNwords(text string) string {
 	}
 	return strings.Join(result, " ")
 
-
+}
 
 	
 
@@ -196,4 +196,4 @@ func StringManipulator(word []string) []string {
 
 
 	
-}
+
