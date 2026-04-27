@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func main() {
+func mainfile() {
 	if len(os.Args) != 3 {
 		fmt.Println("Usage: go run . input.txt output.txt")
 		return
